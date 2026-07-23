@@ -146,7 +146,13 @@ export type Database = {
         | "active"
         | "paused"
         | "blacklisted"
-      publisher_tier: "tier_1" | "tier_2" | "tier_3"
+      publisher_tier:
+        | "tier_1"
+        | "tier_2"
+        | "tier_3"
+        | "tier_a"
+        | "tier_s"
+        | "tier_d"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -282,7 +288,14 @@ export const Constants = {
         "paused",
         "blacklisted",
       ],
-      publisher_tier: ["tier_1", "tier_2", "tier_3"],
+      publisher_tier: [
+        "tier_1",
+        "tier_2",
+        "tier_3",
+        "tier_a",
+        "tier_s",
+        "tier_d",
+      ],
     },
   },
 } as const
