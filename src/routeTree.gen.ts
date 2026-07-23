@@ -15,12 +15,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
 import { Route as AuthenticatedPublishersRouteImport } from './routes/_authenticated/publishers'
 import { Route as AuthenticatedPerformanceRouteImport } from './routes/_authenticated/performance'
-import { Route as AuthenticatedOutreachRouteImport } from './routes/_authenticated/outreach'
-import { Route as AuthenticatedFunnelRouteImport } from './routes/_authenticated/funnel'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
-import { Route as AuthenticatedCreativeRouteImport } from './routes/_authenticated/creative'
-import { Route as AuthenticatedComplianceRouteImport } from './routes/_authenticated/compliance'
-import { Route as AuthenticatedCampaignsRouteImport } from './routes/_authenticated/campaigns'
 import { Route as AuthenticatedPublishersIndexRouteImport } from './routes/_authenticated/publishers.index'
 import { Route as AuthenticatedPublishersIdRouteImport } from './routes/_authenticated/publishers.$id'
 
@@ -54,34 +49,9 @@ const AuthenticatedPerformanceRoute =
     path: '/performance',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
-const AuthenticatedOutreachRoute = AuthenticatedOutreachRouteImport.update({
-  id: '/outreach',
-  path: '/outreach',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedFunnelRoute = AuthenticatedFunnelRouteImport.update({
-  id: '/funnel',
-  path: '/funnel',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedCreativeRoute = AuthenticatedCreativeRouteImport.update({
-  id: '/creative',
-  path: '/creative',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedComplianceRoute = AuthenticatedComplianceRouteImport.update({
-  id: '/compliance',
-  path: '/compliance',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const AuthenticatedCampaignsRoute = AuthenticatedCampaignsRouteImport.update({
-  id: '/campaigns',
-  path: '/campaigns',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedPublishersIndexRoute =
@@ -100,12 +70,7 @@ const AuthenticatedPublishersIdRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
-  '/campaigns': typeof AuthenticatedCampaignsRoute
-  '/compliance': typeof AuthenticatedComplianceRoute
-  '/creative': typeof AuthenticatedCreativeRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
-  '/funnel': typeof AuthenticatedFunnelRoute
-  '/outreach': typeof AuthenticatedOutreachRoute
   '/performance': typeof AuthenticatedPerformanceRoute
   '/publishers': typeof AuthenticatedPublishersRouteWithChildren
   '/settings': typeof AuthenticatedSettingsRoute
@@ -115,12 +80,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
-  '/campaigns': typeof AuthenticatedCampaignsRoute
-  '/compliance': typeof AuthenticatedComplianceRoute
-  '/creative': typeof AuthenticatedCreativeRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
-  '/funnel': typeof AuthenticatedFunnelRoute
-  '/outreach': typeof AuthenticatedOutreachRoute
   '/performance': typeof AuthenticatedPerformanceRoute
   '/settings': typeof AuthenticatedSettingsRoute
   '/publishers/$id': typeof AuthenticatedPublishersIdRoute
@@ -131,12 +91,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
-  '/_authenticated/campaigns': typeof AuthenticatedCampaignsRoute
-  '/_authenticated/compliance': typeof AuthenticatedComplianceRoute
-  '/_authenticated/creative': typeof AuthenticatedCreativeRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
-  '/_authenticated/funnel': typeof AuthenticatedFunnelRoute
-  '/_authenticated/outreach': typeof AuthenticatedOutreachRoute
   '/_authenticated/performance': typeof AuthenticatedPerformanceRoute
   '/_authenticated/publishers': typeof AuthenticatedPublishersRouteWithChildren
   '/_authenticated/settings': typeof AuthenticatedSettingsRoute
@@ -148,12 +103,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/auth'
-    | '/campaigns'
-    | '/compliance'
-    | '/creative'
     | '/dashboard'
-    | '/funnel'
-    | '/outreach'
     | '/performance'
     | '/publishers'
     | '/settings'
@@ -163,12 +113,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/auth'
-    | '/campaigns'
-    | '/compliance'
-    | '/creative'
     | '/dashboard'
-    | '/funnel'
-    | '/outreach'
     | '/performance'
     | '/settings'
     | '/publishers/$id'
@@ -178,12 +123,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/auth'
-    | '/_authenticated/campaigns'
-    | '/_authenticated/compliance'
-    | '/_authenticated/creative'
     | '/_authenticated/dashboard'
-    | '/_authenticated/funnel'
-    | '/_authenticated/outreach'
     | '/_authenticated/performance'
     | '/_authenticated/publishers'
     | '/_authenticated/settings'
@@ -241,46 +181,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedPerformanceRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/outreach': {
-      id: '/_authenticated/outreach'
-      path: '/outreach'
-      fullPath: '/outreach'
-      preLoaderRoute: typeof AuthenticatedOutreachRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/funnel': {
-      id: '/_authenticated/funnel'
-      path: '/funnel'
-      fullPath: '/funnel'
-      preLoaderRoute: typeof AuthenticatedFunnelRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/creative': {
-      id: '/_authenticated/creative'
-      path: '/creative'
-      fullPath: '/creative'
-      preLoaderRoute: typeof AuthenticatedCreativeRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/compliance': {
-      id: '/_authenticated/compliance'
-      path: '/compliance'
-      fullPath: '/compliance'
-      preLoaderRoute: typeof AuthenticatedComplianceRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/campaigns': {
-      id: '/_authenticated/campaigns'
-      path: '/campaigns'
-      fullPath: '/campaigns'
-      preLoaderRoute: typeof AuthenticatedCampaignsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/publishers/': {
@@ -317,24 +222,14 @@ const AuthenticatedPublishersRouteWithChildren =
   )
 
 interface AuthenticatedRouteRouteChildren {
-  AuthenticatedCampaignsRoute: typeof AuthenticatedCampaignsRoute
-  AuthenticatedComplianceRoute: typeof AuthenticatedComplianceRoute
-  AuthenticatedCreativeRoute: typeof AuthenticatedCreativeRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
-  AuthenticatedFunnelRoute: typeof AuthenticatedFunnelRoute
-  AuthenticatedOutreachRoute: typeof AuthenticatedOutreachRoute
   AuthenticatedPerformanceRoute: typeof AuthenticatedPerformanceRoute
   AuthenticatedPublishersRoute: typeof AuthenticatedPublishersRouteWithChildren
   AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
-  AuthenticatedCampaignsRoute: AuthenticatedCampaignsRoute,
-  AuthenticatedComplianceRoute: AuthenticatedComplianceRoute,
-  AuthenticatedCreativeRoute: AuthenticatedCreativeRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
-  AuthenticatedFunnelRoute: AuthenticatedFunnelRoute,
-  AuthenticatedOutreachRoute: AuthenticatedOutreachRoute,
   AuthenticatedPerformanceRoute: AuthenticatedPerformanceRoute,
   AuthenticatedPublishersRoute: AuthenticatedPublishersRouteWithChildren,
   AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,

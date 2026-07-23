@@ -6,12 +6,7 @@ import {
   Activity,
   LayoutDashboard,
   Users,
-  Megaphone,
-  Radar,
-  Image as ImageIcon,
-  ShieldCheck,
   GaugeCircle,
-  Filter,
   Settings,
   Search,
   Bell,
@@ -40,28 +35,14 @@ const NAV_GROUPS = [
   },
   {
     label: "Operations",
-    items: [
-      { to: "/publishers", label: "Publishers", icon: Users },
-      { to: "/campaigns", label: "Campaigns", icon: Megaphone },
-      { to: "/funnel", label: "Funnel", icon: Filter },
-    ],
-  },
-  {
-    label: "Growth",
-    items: [{ to: "/outreach", label: "Outreach", icon: Radar }],
-  },
-  {
-    label: "Assets",
-    items: [
-      { to: "/creative", label: "Creative Hub", icon: ImageIcon },
-      { to: "/compliance", label: "Compliance", icon: ShieldCheck },
-    ],
+    items: [{ to: "/publishers", label: "Publishers", icon: Users }],
   },
   {
     label: "System",
     items: [{ to: "/settings", label: "Settings", icon: Settings }],
   },
 ] as const;
+
 
 export function AppShell({ children }: { children: ReactNode }) {
   return (
