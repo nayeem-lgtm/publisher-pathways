@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { StatusBadge, TierBadge } from "@/components/status-badge";
 import { formatCurrency, formatDate, formatPct } from "@/lib/format";
-import { Search, Plus, Download } from "lucide-react";
+import { Search, Download } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/publishers/")({
   head: () => ({
@@ -84,10 +84,8 @@ function PublishersList() {
           <Button variant="outline" size="sm">
             <Download className="mr-2 h-4 w-4" /> Export
           </Button>
-          <Button size="sm">
-            <Plus className="mr-2 h-4 w-4" /> Add publisher
-          </Button>
         </div>
+
       </div>
 
       {/* Filters */}
