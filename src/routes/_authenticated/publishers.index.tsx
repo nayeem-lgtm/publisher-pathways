@@ -21,7 +21,7 @@ export const Route = createFileRoute("/_authenticated/publishers/")({
 });
 
 const STATUS_FILTERS = ["all", "active", "testing", "pending", "paused", "blacklisted"] as const;
-const TIER_FILTERS = ["all", "tier_1", "tier_2", "tier_3"] as const;
+const TIER_FILTERS = ["all", "tier_s", "tier_a", "tier_d"] as const;
 
 function PublishersList() {
   const [q, setQ] = useState("");

@@ -31,7 +31,17 @@ export const STATUS_LABELS: Record<string, string> = {
 };
 
 export const TIER_LABELS: Record<string, string> = {
+  tier_s: "Tier S",
+  tier_a: "Tier A",
+  tier_d: "Tier D",
   tier_1: "Tier 1",
   tier_2: "Tier 2",
   tier_3: "Tier 3",
 };
+
+export const TIER_OPTIONS = [
+  { value: "tier_s", label: "Tier S" },
+  { value: "tier_a", label: "Tier A" },
+  { value: "tier_d", label: "Tier D" },
+] as const;
+
