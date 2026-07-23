@@ -88,10 +88,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "One system for publisher lifecycle, campaign workflows, performance and compliance.",
+          "Centralized operations console for the affiliate team — publishers, campaigns, KPIs and compliance in one workspace.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Affiliate Automation — Operations Console" },
+      { name: "twitter:description", content: "Centralized operations console for the affiliate team — publishers, campaigns, KPIs and compliance in one workspace." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3b198816-7e12-48e3-9e53-4eff1b32c9b9/id-preview-f80998a2--9711dfb3-22f1-4de9-ad5b-371603e41604.lovable.app-1784837391440.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/3b198816-7e12-48e3-9e53-4eff1b32c9b9/id-preview-f80998a2--9711dfb3-22f1-4de9-ad5b-371603e41604.lovable.app-1784837391440.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
