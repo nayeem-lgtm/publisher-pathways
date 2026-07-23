@@ -38,6 +38,56 @@ export type Database = {
         }
         Relationships: []
       }
+      publisher_documents: {
+        Row: {
+          category: string
+          created_at: string
+          description: string | null
+          file_path: string
+          file_size: number | null
+          id: string
+          mime_type: string | null
+          name: string
+          publisher_id: string
+          updated_at: string
+          uploaded_by: string | null
+        }
+        Insert: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          file_path: string
+          file_size?: number | null
+          id?: string
+          mime_type?: string | null
+          name: string
+          publisher_id: string
+          updated_at?: string
+          uploaded_by?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          file_path?: string
+          file_size?: number | null
+          id?: string
+          mime_type?: string | null
+          name?: string
+          publisher_id?: string
+          updated_at?: string
+          uploaded_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "publisher_documents_publisher_id_fkey"
+            columns: ["publisher_id"]
+            isOneToOne: false
+            referencedRelation: "publishers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       publishers: {
         Row: {
           assigned_am: string | null
@@ -146,7 +196,13 @@ export type Database = {
         | "active"
         | "paused"
         | "blacklisted"
-      publisher_tier: "tier_1" | "tier_2" | "tier_3"
+      publisher_tier:
+        | "tier_1"
+        | "tier_2"
+        | "tier_3"
+        | "tier_a"
+        | "tier_s"
+        | "tier_d"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -282,7 +338,14 @@ export const Constants = {
         "paused",
         "blacklisted",
       ],
-      publisher_tier: ["tier_1", "tier_2", "tier_3"],
+      publisher_tier: [
+        "tier_1",
+        "tier_2",
+        "tier_3",
+        "tier_a",
+        "tier_s",
+        "tier_d",
+      ],
     },
   },
 } as const

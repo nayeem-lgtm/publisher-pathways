@@ -10,10 +10,14 @@ const STATUS_STYLES: Record<string, string> = {
 };
 
 const TIER_STYLES: Record<string, string> = {
+  tier_s: "bg-primary/15 text-primary border-primary/30",
+  tier_a: "bg-chart-2/15 text-chart-2 border-chart-2/30",
+  tier_d: "bg-muted text-muted-foreground border-border",
   tier_1: "bg-primary/15 text-primary border-primary/30",
   tier_2: "bg-chart-2/15 text-chart-2 border-chart-2/30",
   tier_3: "bg-muted text-muted-foreground border-border",
 };
+
 
 export function StatusBadge({ status }: { status: string }) {
   return (

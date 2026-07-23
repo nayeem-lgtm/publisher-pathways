@@ -5,7 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { StatusBadge, TierBadge } from "@/components/status-badge";
-import { formatCurrency, formatDate, formatPct } from "@/lib/format";
+import { formatCurrency, formatDate, formatPct, TIER_LABELS } from "@/lib/format";
 import { Search, Download } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/publishers/")({
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/_authenticated/publishers/")({
 });
 
 const STATUS_FILTERS = ["all", "active", "testing", "pending", "paused", "blacklisted"] as const;
-const TIER_FILTERS = ["all", "tier_1", "tier_2", "tier_3"] as const;
+const TIER_FILTERS = ["all", "tier_s", "tier_a", "tier_d"] as const;
 
 function PublishersList() {
   const [q, setQ] = useState("");
@@ -111,11 +111,12 @@ function PublishersList() {
             label="Tier"
             options={TIER_FILTERS.map((s) => ({
               value: s,
-              label: s === "all" ? "All" : s.replace("_", " "),
+              label: s === "all" ? "All" : (TIER_LABELS[s] ?? s),
             }))}
             value={tier}
             onChange={(v) => setTier(v as typeof tier)}
           />
+
         </div>
       </div>
 
