@@ -14,16 +14,139 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          email: string | null
+          full_name: string | null
+          id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
+      publishers: {
+        Row: {
+          assigned_am: string | null
+          cap_daily: number | null
+          company_name: string
+          contact_name: string | null
+          conversion_rate: number
+          created_at: string
+          email: string | null
+          geos: string[]
+          id: string
+          notes: string | null
+          onboarded_at: string | null
+          partner_id: string
+          performance_score: number
+          revenue_30d: number
+          revenue_total: number
+          status: Database["public"]["Enums"]["publisher_status"]
+          tags: string[]
+          tier: Database["public"]["Enums"]["publisher_tier"]
+          traffic_sources: string[]
+          updated_at: string
+        }
+        Insert: {
+          assigned_am?: string | null
+          cap_daily?: number | null
+          company_name: string
+          contact_name?: string | null
+          conversion_rate?: number
+          created_at?: string
+          email?: string | null
+          geos?: string[]
+          id?: string
+          notes?: string | null
+          onboarded_at?: string | null
+          partner_id: string
+          performance_score?: number
+          revenue_30d?: number
+          revenue_total?: number
+          status?: Database["public"]["Enums"]["publisher_status"]
+          tags?: string[]
+          tier?: Database["public"]["Enums"]["publisher_tier"]
+          traffic_sources?: string[]
+          updated_at?: string
+        }
+        Update: {
+          assigned_am?: string | null
+          cap_daily?: number | null
+          company_name?: string
+          contact_name?: string | null
+          conversion_rate?: number
+          created_at?: string
+          email?: string | null
+          geos?: string[]
+          id?: string
+          notes?: string | null
+          onboarded_at?: string | null
+          partner_id?: string
+          performance_score?: number
+          revenue_30d?: number
+          revenue_total?: number
+          status?: Database["public"]["Enums"]["publisher_status"]
+          tags?: string[]
+          tier?: Database["public"]["Enums"]["publisher_tier"]
+          traffic_sources?: string[]
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "affiliate_manager" | "qa" | "compliance" | "management"
+      publisher_status:
+        | "pending"
+        | "testing"
+        | "active"
+        | "paused"
+        | "blacklisted"
+      publisher_tier: "tier_1" | "tier_2" | "tier_3"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +273,16 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["affiliate_manager", "qa", "compliance", "management"],
+      publisher_status: [
+        "pending",
+        "testing",
+        "active",
+        "paused",
+        "blacklisted",
+      ],
+      publisher_tier: ["tier_1", "tier_2", "tier_3"],
+    },
   },
 } as const
