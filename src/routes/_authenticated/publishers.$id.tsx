@@ -95,7 +95,7 @@ function PublisherDetail() {
 
         {p.tags.length > 0 && (
           <div className="mt-5 flex flex-wrap gap-1.5">
-            {p.tags.map((t) => (
+            {p.tags.map((t: string) => (
               <span
                 key={t}
                 className="rounded-full border border-border bg-muted px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground"
@@ -128,7 +128,7 @@ function PublisherDetail() {
               <div className="flex flex-wrap gap-1">
                 {p.traffic_sources.length === 0
                   ? "—"
-                  : p.traffic_sources.map((s) => (
+                  : p.traffic_sources.map((s: string) => (
                       <span
                         key={s}
                         className="rounded-sm border border-border bg-muted px-1.5 py-0.5 font-mono text-[10px] uppercase text-muted-foreground"
